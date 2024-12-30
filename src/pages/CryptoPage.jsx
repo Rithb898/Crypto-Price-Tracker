@@ -1,10 +1,10 @@
-import ViewToggel from "../components/ViewToggel";
-import SearchBar from "../components/SearchBar";
+import ViewToggel from "../components/layout/ViewToggel";
+import SearchBar from "../components/layout/SearchBar";
 import { useEffect, useMemo, useState } from "react";
 import CoinCard from "../components/CoinCard";
 import CoinList from "../components/CoinList";
 // import { cryptoData } from "../cryptoData";
-import { PaginationComponent } from "../components/PaginationComponent";
+import { PaginationComponent } from "../components/layout/PaginationComponent";
 import { getTopCoins } from "../lib/coinGecko";
 import { useCurrency } from "../context/CryptoContext";
 
@@ -13,9 +13,8 @@ const ITEMS_PER_PAGE = 15;
 function CryptoPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [view, setView] = useState("grid");
-  const [cryptoData, setCryptoData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { currency } = useCurrency();
+  const { currency, cryptoData, setCryptoData } = useCurrency();
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -46,7 +45,6 @@ function CryptoPage() {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentData = filteredCryptoData.slice(startIndex, endIndex);
-  console.log(currentData);
 
   const handleSearch = (query) => {
     setSearchQuery(query);

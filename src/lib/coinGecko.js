@@ -3,7 +3,7 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    "x-cg-demo-api-key": "CG-NTKj8qJwSWSygiVfCmsSfgU4	",
+    "x-cg-demo-api-key": import.meta.env.VITE_API_KEY,
   },
 };
 

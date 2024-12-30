@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import CoinCard from "../components/CoinCard";
 import CoinList from "../components/CoinList";
 import LoadingSpinner from "../components/LoadingSpinner";
-import ViewToggel from "../components/ViewToggel";
+import ViewToggel from "../components/layout/ViewToggel";
 import { getWatchlist, toggleWatchlistItem } from "../lib/localStorage";
 import { getTopCoins } from "../lib/coinGecko";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/layout/SearchBar";
+import { LoadingOverlay } from "../components/LoadingOverlay";
 
 function FavoritePage() {
   const [view, setView] = useState("grid");
@@ -53,16 +54,17 @@ function FavoritePage() {
   }, [toggleWatchlistItem]);
 
   return (
-    <div>
+    <div className="min-h-screen">
+      {loading && <LoadingOverlay />}
       <SearchBar />
       <ViewToggel view={view} setView={setView} />
       <div>
         {cryptoData.length === 0 ? (
-          <div className="text-center text-white">
+          <div className="text-center text-white h-screen overflow-y-auto">
             <p>Your watchlist is empty. Add some coins to track them here!</p>
           </div>
         ) : (
-          <div>
+          <div className="h-screen overflow-y-auto">
             {view === "grid" ? (
               <CoinCard currentData={cryptoData} loading={loading} />
             ) : (

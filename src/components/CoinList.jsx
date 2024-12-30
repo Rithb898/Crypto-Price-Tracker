@@ -7,6 +7,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import { useCurrency } from "../context/CryptoContext";
 import { isInWatchlist, toggleWatchlistItem } from "../lib/localStorage";
 import { Toaster } from "react-hot-toast";
+import { LoadingOverlay } from "./LoadingOverlay";
 
 function CoinList({ currentData, loading }) {
   const { currency } = useCurrency();
@@ -36,9 +37,7 @@ function CoinList({ currentData, loading }) {
   return (
     <>
       {loading ? (
-        <div className="h-[60vh]">
-          <LoadingSpinner />
-        </div>
+        <LoadingOverlay />
       ) : (
         <div className="overflow-x-auto">
           <Toaster position="top-right" />

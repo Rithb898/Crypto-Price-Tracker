@@ -8,7 +8,7 @@ function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <footer className="relative rounded-t-3xl bg-gray-400 dark:bg-gray-900 py-4 text-black dark:text-white">
+    <footer className="relative bottom-0 rounded-t-3xl bg-gray-400 dark:bg-gray-900 py-4 text-black dark:text-white">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-xl font-bold">

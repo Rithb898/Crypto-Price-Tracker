@@ -1,4 +1,4 @@
-import useTheme from "../context/theme";
+import useTheme from "../../context/theme";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

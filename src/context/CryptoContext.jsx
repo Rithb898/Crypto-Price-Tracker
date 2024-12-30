@@ -4,9 +4,11 @@ const CurrencyContext = createContext();
 
 export function CurrencyProvider({ children }) {
   const [currency, setCurrency] = useState("USD");
+  const [cryptoData, setCryptoData] = useState([]);
+  const [trendingData, setTrendingData] = useState([]);
 
   return (
-    <CurrencyContext.Provider value={{ currency, setCurrency }}>
+    <CurrencyContext.Provider value={{ currency, setCurrency, cryptoData, setCryptoData, trendingData, setTrendingData }}>
       {children}
     </CurrencyContext.Provider>
   );

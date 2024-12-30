@@ -7,11 +7,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { Card, CardContent } from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import { getCoinChartData } from "../lib/coinGecko";
-import { useCurrency } from "../context/CryptoContext";
-import LoadingSpinner from "./LoadingSpinner";
+import { Card, CardContent } from "../ui/card";
+import { Button } from "../ui/button";
+import { getCoinChartData } from "../../lib/coinGecko";
+import { useCurrency } from "../../context/CryptoContext";
+import LoadingSpinner from "../LoadingSpinner";
+import { LoadingOverlay } from "../LoadingOverlay";
+import { ButtonLoader } from "../ButtonLoader";
 
 export function CoinChart({ coinId, price_change_percentage_24h }) {
   const [timeRange, setTimeRange] = useState("7");
@@ -62,7 +64,11 @@ export function CoinChart({ coinId, price_change_percentage_24h }) {
                   ? `${price_change_percentage_24h > 0 ? "bg-green-600" : "bg-red-600"} text-white`
                   : "bg-gray-800 text-white"
               }
+              disabled={loading}
             >
+              {loading && range === timeRange ? (
+                <ButtonLoader className="mr-2" />
+              ) : null}
               {range === "7"
                 ? "1W"
                 : range === "30"
@@ -75,6 +81,7 @@ export function CoinChart({ coinId, price_change_percentage_24h }) {
             </Button>
           ))}
         </div>
+        {loading && <LoadingOverlay />}
         {loading ? (
           <div className="h-[300px]">
             <LoadingSpinner />
