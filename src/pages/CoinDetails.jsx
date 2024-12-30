@@ -14,6 +14,7 @@ import { cn } from "../lib/utils";
 import { getCoinData } from "../lib/coinGecko";
 import LoadingSpinner from "../components/LoadingSpinner";
 import TradingViewWidget from "../components/charts/TradingViewWidget";
+import { LoadingOverlay } from "../components/LoadingOverlay";
 
 function CoinDetails() {
   const { coinId } = useParams();
@@ -56,6 +57,7 @@ function CoinDetails() {
       {loading ? (
         <div className="h-[100vh]">
           <LoadingSpinner />
+          <LoadingOverlay />
         </div>
       ) : (
         <div className="min-h-screen bg-white dark:bg-inherit text-gray-900 dark:text-white" key={coinDetails.id}>

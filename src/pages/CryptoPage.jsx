@@ -7,6 +7,7 @@ import CoinList from "../components/CoinList";
 import { PaginationComponent } from "../components/layout/PaginationComponent";
 import { getTopCoins } from "../lib/coinGecko";
 import { useCurrency } from "../context/CryptoContext";
+import { LoadingOverlay } from "../components/LoadingOverlay";
 
 const ITEMS_PER_PAGE = 15;
 
@@ -52,6 +53,7 @@ function CryptoPage() {
   };
   return (
     <>
+      {loading && <LoadingOverlay />}
       <SearchBar onSearch={handleSearch} />
       <ViewToggel view={view} setView={setView} />
       <div>
