@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import CryptoPag from "./pages/CryptoPage";
 import TrendingPage from "./pages/TrendingPage";
 import FavoritePage from "./pages/FavoritePage";
 import CoinDetails from "./pages/CoinDetails";
