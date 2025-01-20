@@ -19,17 +19,16 @@ function PriceTicker() {
 
     return () => clearInterval(interval);
   }, []);
-  // console.log(coins);
   return (
-    <div className="overflow-hidden bg-opacity-50 py-2 dark:bg-opacity-70">
+    <div className="py-2 overflow-hidden bg-opacity-50 dark:bg-opacity-70">
       <motion.div
         animate={{ x: ["100%", "-100%"] }}
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         className="flex whitespace-nowrap"
       >
         {coins.map((coin) => (
-          <div key={coin.id} className="mx-6 flex items-center gap-2">
-            <img src={coin.image} alt={coin.name} className="h-8 w-8" />
+          <div key={coin.id} className="flex items-center gap-2 mx-6">
+            <img src={coin.image} alt={coin.name} className="w-8 h-8" />
             <span className="text-black dark:text-white">
               ${coin.current_price.toFixed(2)}
             </span>

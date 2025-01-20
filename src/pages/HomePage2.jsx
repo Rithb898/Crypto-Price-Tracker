@@ -54,7 +54,6 @@ function HomePage2() {
     fetchTrendingCoins();
   }, []);
 
-  console.log(trendingCoins);
 
   // filter 6 item and save it on other state variable
   const topCoins = trendingCoins.slice(0, 6);
@@ -78,19 +77,19 @@ function HomePage2() {
       <PriceTicker />
 
       {/* fetures Section */}
-      <section className="mt-10 bg-gray-50 py-20 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold dark:text-white">
+      <section className="py-20 mt-10 bg-gray-50 dark:bg-gray-800">
+        <div className="container px-4 mx-auto">
+          <h2 className="mb-12 text-3xl font-bold text-center dark:text-white">
             Why Choose CryptoTrack?
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="transform rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-700 dark:text-white"
+                className="p-6 transition-all duration-300 transform bg-white rounded-lg shadow-lg hover:scale-105 hover:shadow-xl dark:bg-gray-700 dark:text-white"
               >
                 <CardHeader>
-                  <feature.icon className="mb-2 h-10 w-10 text-purple-600 dark:text-purple-400" />
+                  <feature.icon className="w-10 h-10 mb-2 text-purple-600 dark:text-purple-400" />
                   <CardTitle className="dark:text-white">
                     {feature.title}
                   </CardTitle>
@@ -107,9 +106,9 @@ function HomePage2() {
       </section>
 
       {/* Trending Section */}
-      <section className="mt-10 bg-gray-50 py-20 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-4xl font-bold text-white">
+      <section className="py-20 mt-10 bg-gray-50 dark:bg-gray-800">
+        <div className="container px-4 mx-auto">
+          <h2 className="mb-12 text-4xl font-bold text-center text-white">
             Trending Cryptocurrencies
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -156,20 +155,20 @@ function HomePage2() {
               // </div>
               <Card
                 key={coin.item.id}
-                className="transform rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-700 dark:text-white"
+                className="p-6 transition-all duration-300 transform bg-white rounded-lg shadow-lg hover:scale-105 hover:shadow-xl dark:bg-gray-700 dark:text-white"
               >
                 <CardHeader className="flex justify-center">
                   <img
                     src={coin.item.small}
                     alt={coin.item.name}
-                    className="h-12 w-12 rounded-full"
+                    className="w-12 h-12 rounded-full"
                   />
                   <div className="flex justify-between">
                     <div>
                       <h3 className="text-lg font-semibold">
                         {coin.item.name}
                       </h3>
-                      <p className="uppercase text-gray-500">
+                      <p className="text-gray-500 uppercase">
                         {coin.item.symbol}
                       </p>
                     </div>

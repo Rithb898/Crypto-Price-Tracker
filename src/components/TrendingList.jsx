@@ -15,11 +15,9 @@ function TrendingList({ currentData, loading }) {
 
   useEffect(
     function () {
-      console.log("TrendingList useEffect");
       const newFavorites = {};
       currentData.forEach(function (coin) {
         newFavorites[coin.item.id] = isInWatchlist(coin.item.id);
-        console.log(newFavorites);
       });
       setFavorites(newFavorites);
     },
@@ -27,7 +25,6 @@ function TrendingList({ currentData, loading }) {
   );
 
   const handleStarClick = function (id) {
-    console.log("TrendingList handleStarClick", id);
     toggleWatchlistItem(id);
     setFavorites(function (prev) {
       return { ...prev, [id]: !prev[id] };
@@ -94,7 +91,7 @@ function TrendingList({ currentData, loading }) {
                       <img
                         src={coin.item.large}
                         alt={`${coin.item.id} icon`}
-                        className="size-8 rounded-full md:size-10"
+                        className="rounded-full size-8 md:size-10"
                       />
                       <div>
                         <h3 className="font-semibold uppercase dark:text-white md:text-lg">
@@ -121,9 +118,9 @@ function TrendingList({ currentData, loading }) {
                         {coin.item.data.price_change_percentage_24h[
                           currency.toLowerCase()
                         ] > 0 ? (
-                          <TrendingUp className="size-6 text-green-500" />
+                          <TrendingUp className="text-green-500 size-6" />
                         ) : (
-                          <TrendingDown className="size-6 text-red-500" />
+                          <TrendingDown className="text-red-500 size-6" />
                         )}
                       </div>
                       <span

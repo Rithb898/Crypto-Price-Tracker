@@ -46,7 +46,7 @@ function CoinDetails() {
 
   const USDIcon = () => (
     <svg
-      className="h-5 w-5 text-gray-400"
+      className="w-5 h-5 text-gray-400"
       viewBox="0 0 24 24"
       fill="currentColor"
     >
@@ -54,7 +54,7 @@ function CoinDetails() {
     </svg>
   );
 
-  console.log(coinDetails);
+
 
   return (
     <>
@@ -65,15 +65,15 @@ function CoinDetails() {
         </div>
       ) : (
         <div
-          className="min-h-screen bg-white text-gray-900 dark:bg-inherit dark:text-white"
+          className="min-h-screen text-gray-900 bg-white dark:bg-inherit dark:text-white"
           key={coinDetails.id}
         >
-          <div className="container mx-auto py-8">
+          <div className="container py-8 mx-auto">
             <div
               onClick={() => navigation("/")}
               className="mb-6 inline-flex cursor-pointer items-center text-blue-600 transition-colors duration-200 hover:underline dark:text-[#00D7FE]"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
+              <ArrowLeft className="w-4 h-4 mr-2" />
               Back to list
             </div>
 
@@ -83,13 +83,13 @@ function CoinDetails() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-start justify-between gap-8 lg:flex-row"
             >
-              <div className="w-full flex-1">
-                <Card className="mb-8 border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+              <div className="flex-1 w-full">
+                <Card className="mb-8 bg-white border-gray-200 shadow-lg dark:border-gray-700 dark:bg-gray-800">
                   <CardHeader className="flex flex-row items-center gap-4">
                     <img
                       src={coinDetails.image.large}
                       alt={coinDetails.name}
-                      className="h-16 w-16 rounded-full"
+                      className="w-16 h-16 rounded-full"
                     />
                     <div>
                       <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
@@ -101,7 +101,7 @@ function CoinDetails() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className="mb-4 flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-4">
                       <div
                         className={`text-2xl font-bold md:text-4xl ${coinDetails.market_data.price_change_percentage_24h > 0 ? "text-green-500" : "text-red-500"}`}
                       >
@@ -116,9 +116,9 @@ function CoinDetails() {
                         >
                           {coinDetails.market_data.price_change_percentage_24h >
                           0 ? (
-                            <TrendingUp className="h-6 w-6" strokeWidth={3} />
+                            <TrendingUp className="w-6 h-6" strokeWidth={3} />
                           ) : (
-                            <TrendingDown className="h-6 w-6" strokeWidth={3} />
+                            <TrendingDown className="w-6 h-6" strokeWidth={3} />
                           )}
                         </div>
                         <span
@@ -141,7 +141,7 @@ function CoinDetails() {
                         </span>
                       </div>
                     </div>
-                    <div className="mb-4 flex justify-center gap-4">
+                    <div className="flex justify-center gap-4 mb-4">
                       <button
                         className={`rounded-lg px-4 py-2 ${
                           activeChart === "coin"
@@ -178,7 +178,7 @@ function CoinDetails() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg dark:border-gray-700 dark:from-gray-800 dark:to-gray-900">
+                <Card className="border-gray-200 shadow-lg bg-gradient-to-br from-gray-50 to-gray-100 dark:border-gray-700 dark:from-gray-800 dark:to-gray-900">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
                       Price Converter
@@ -193,7 +193,7 @@ function CoinDetails() {
                               <img
                                 src={coinDetails.image.small}
                                 alt={coinDetails.symbol}
-                                className="h-5 w-5"
+                                className="w-5 h-5"
                               />
                               {coinDetails.symbol.toUpperCase()}
                             </>
@@ -215,7 +215,7 @@ function CoinDetails() {
 
                       <button
                         onClick={() => setFromCrypto(!fromCrypto)}
-                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                        className="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
                       >
                         <div className="rounded-full bg-[#00D7FE] p-3 text-black transition-transform hover:rotate-180 hover:scale-110">
                           <ArrowUpDown strokeWidth={2} />
@@ -234,13 +234,13 @@ function CoinDetails() {
                               <img
                                 src={coinDetails.image.small}
                                 alt={coinDetails.symbol}
-                                className="h-5 w-5"
+                                className="w-5 h-5"
                               />
                               {coinDetails.symbol.toUpperCase()}
                             </>
                           )}
                         </label>
-                        <div className="w-full rounded-xl bg-white/50 p-4 dark:bg-gray-700/50">
+                        <div className="w-full p-4 rounded-xl bg-white/50 dark:bg-gray-700/50">
                           <div className="text-2xl font-medium text-gray-900 dark:text-white">
                             {calculateConversion(amount, fromCrypto)}
                           </div>
@@ -252,7 +252,7 @@ function CoinDetails() {
               </div>
 
               <div className="w-full lg:w-1/3">
-                <Card className="sticky top-4 border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+                <Card className="sticky bg-white border-gray-200 shadow-lg top-4 dark:border-gray-700 dark:bg-gray-800">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
                       Market Stats
@@ -304,12 +304,12 @@ function CoinDetails() {
                         label="All Time Low"
                         value={`$${coinDetails.market_data.atl.usd.toLocaleString()}`}
                       />
-                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
+                      <div className="flex items-center justify-between pb-2 border-b border-gray-200 dark:border-gray-700">
                         <span className="text-gray-600 dark:text-gray-400">
                           Bullish Sentiment
                         </span>
                         <div className="flex items-center justify-end gap-2">
-                          <div className="h-2 w-24 overflow-hidden rounded-full bg-gray-700">
+                          <div className="w-24 h-2 overflow-hidden bg-gray-700 rounded-full">
                             <div
                               className="h-full bg-green-500"
                               style={{
@@ -323,12 +323,12 @@ function CoinDetails() {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
+                      <div className="flex items-center justify-between pb-2 border-b border-gray-200 dark:border-gray-700">
                         <span className="text-gray-600 dark:text-gray-400">
                           Bearish Sentiment
                         </span>
                         <div className="flex items-center justify-end gap-2">
-                          <div className="h-2 w-24 overflow-hidden rounded-full bg-gray-700">
+                          <div className="w-24 h-2 overflow-hidden bg-gray-700 rounded-full">
                             <div
                               className="h-full bg-red-500"
                               style={{
@@ -357,7 +357,7 @@ export default CoinDetails;
 
 function StatItem({ label, value }) {
   return (
-    <div className="rounded-lg bg-gray-700 p-4 transition-all duration-200 hover:bg-gray-600">
+    <div className="p-4 transition-all duration-200 bg-gray-700 rounded-lg hover:bg-gray-600">
       <p className="mb-1 text-gray-400">{label}</p>
       <p className="text-lg font-semibold text-white">{value}</p>
     </div>
@@ -366,7 +366,7 @@ function StatItem({ label, value }) {
 
 function MarketStatItem({ label, value }) {
   return (
-    <div className="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
+    <div className="flex items-center justify-between pb-2 border-b border-gray-200 dark:border-gray-700">
       <span className="text-gray-600 dark:text-gray-400">{label}</span>
       <span className="font-medium text-gray-900 dark:text-white">{value}</span>
     </div>

@@ -32,8 +32,6 @@ function CoinList({ currentData, loading }) {
     });
   };
 
-  console.log(favorites);
-
   return (
     <>
       {loading ? (
@@ -92,7 +90,7 @@ function CoinList({ currentData, loading }) {
                       <img
                         src={coin.image}
                         alt={`${coin.id} icon`}
-                        className="size-8 rounded-full md:size-10"
+                        className="rounded-full size-8 md:size-10"
                       />
                       <div>
                         <h3 className="font-semibold uppercase dark:text-white md:text-lg">
@@ -117,9 +115,9 @@ function CoinList({ currentData, loading }) {
                         className={`hidden items-center rounded-full border-2 p-1.5 md:flex ${coin.price_change_percentage_24h > 0 ? "border-green-500" : "border-red-500"}`}
                       >
                         {coin.price_change_percentage_24h > 0 ? (
-                          <TrendingUp className="size-6 text-green-500" />
+                          <TrendingUp className="text-green-500 size-6" />
                         ) : (
-                          <TrendingDown className="size-6 text-red-500" />
+                          <TrendingDown className="text-red-500 size-6" />
                         )}
                       </div>
                       <span
