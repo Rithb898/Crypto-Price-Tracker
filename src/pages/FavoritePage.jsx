@@ -60,7 +60,7 @@ function FavoritePage() {
       <ViewToggel view={view} setView={setView} />
       <div>
         {cryptoData.length === 0 ? (
-          <div className="text-center text-white h-screen overflow-y-auto">
+          <div className="h-screen overflow-y-auto text-center text-white">
             <p>Your watchlist is empty. Add some coins to track them here!</p>
           </div>
         ) : (

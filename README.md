@@ -32,22 +32,28 @@ A modern cryptocurrency tracking application built with React that provides real
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/crypto-tracker.git
 ```
 
 2. Install dependencies:
+
 ```bash
 cd crypto-tracker
 npm install
 ```
+
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
+
 4. Open your browser and go to `http://localhost:5173`.
 
 ## Project Structure
+
 ```
 crypto-tracker/
 ├── src/
@@ -86,11 +92,13 @@ VITE_API_BASE_URL=https://api.coingecko.com/api/v3
 ## Features in Detail
 
 ### Theme Support
+
 - Light/Dark mode toggle
 - Persistent theme preference
 - Custom color schemes
 
 ### Cryptocurrency Data
+
 - Real-time price updates
 - Market cap rankings
 - 24h price changes
@@ -98,6 +106,7 @@ VITE_API_BASE_URL=https://api.coingecko.com/api/v3
 - Historical data charts
 
 ### User Interface
+
 - Responsive grid/list views
 - Advanced search and filtering
 - Interactive charts
@@ -116,18 +125,21 @@ The application uses the CoinGecko API for cryptocurrency data. Key endpoints:
 ## Development Guidelines
 
 ### Code Style
+
 - Use ESLint and Prettier for consistent formatting
 - Follow React best practices
 - Use meaningful component and variable names
 - Document complex logic with comments
 
 ### Component Structure
+
 - Keep components small and focused
 - Use proper prop types
 - Implement error boundaries
 - Optimize re-renders
 
 ### State Management
+
 - Use Context API for global state
 - Implement proper loading states
 - Handle errors gracefully
@@ -150,6 +162,7 @@ npm run test
 ```
 
 Key testing areas:
+
 - Component rendering
 - User interactions
 - API integration
@@ -181,4 +194,3 @@ MIT License - See LICENSE file for details
 ## Support
 
 For support, email support@cryptotracker.com or open an issue in the repository.
-

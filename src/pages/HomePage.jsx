@@ -5,19 +5,19 @@ import { ArrowRight, LineChart, Search, Star } from "lucide-react";
 
 function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white dark:bg-inherit text-black dark:text-white">
+    <div className="flex min-h-screen flex-col bg-white text-black dark:bg-inherit dark:text-white">
       <div className="flex-grow">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mx-auto max-w-3xl space-y-8 text-center py-20"
+            className="mx-auto max-w-3xl space-y-8 py-20 text-center"
           >
             <h1 className="mb-4 bg-gradient-to-r from-[#00D7FE] to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent md:text-6xl">
               Welcome to CryptoTracker
             </h1>
-            <p className="mb-8 text-lg md:text-xl text-gray-600 dark:text-gray-300">
+            <p className="mb-8 text-lg text-gray-600 dark:text-gray-300 md:text-xl">
               Your ultimate destination for real-time cryptocurrency insights.
               Track prices, analyze trends, and make informed decisions with our
               cutting-edge platform.
@@ -48,7 +48,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-20 grid gap-8 md:grid-cols-3 mb-20"
+            className="mb-20 mt-20 grid gap-8 md:grid-cols-3"
           >
             <FeatureCard
               icon={<LineChart className="h-10 w-10 text-[#00D7FE]" />}
@@ -61,7 +61,7 @@ function HomePage() {
               description="Create and manage your own watchlist to keep track of your favorite cryptocurrencies."
             />
             <FeatureCard
-              icon={<Search className="h-10 w-10 text-[#00D7FE] " />}
+              icon={<Search className="h-10 w-10 text-[#00D7FE]" />}
               title="Advanced Search"
               description="Easily find and analyze specific cryptocurrencies with our powerful search functionality."
             />
@@ -78,7 +78,7 @@ function FeatureCard({ icon, title, description }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className="rounded-lg bg-gray-100 dark:bg-gray-800 p-6 shadow-lg"
+      className="rounded-lg bg-gray-100 p-6 shadow-lg dark:bg-gray-800"
     >
       <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700">
         {icon}

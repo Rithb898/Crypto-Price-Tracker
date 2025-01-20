@@ -8,7 +8,16 @@ export function CurrencyProvider({ children }) {
   const [trendingData, setTrendingData] = useState([]);
 
   return (
-    <CurrencyContext.Provider value={{ currency, setCurrency, cryptoData, setCryptoData, trendingData, setTrendingData }}>
+    <CurrencyContext.Provider
+      value={{
+        currency,
+        setCurrency,
+        cryptoData,
+        setCryptoData,
+        trendingData,
+        setTrendingData,
+      }}
+    >
       {children}
     </CurrencyContext.Provider>
   );

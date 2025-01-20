@@ -21,7 +21,7 @@ function CoinDetails() {
   const navigation = useNavigate();
   const [coinDetails, setCoinDetails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeChart, setActiveChart] = useState('coin');
+  const [activeChart, setActiveChart] = useState("coin");
   const [amount, setAmount] = useState(1);
   const [fromCrypto, setFromCrypto] = useState(true);
 
@@ -45,7 +45,11 @@ function CoinDetails() {
   };
 
   const USDIcon = () => (
-    <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+    <svg
+      className="h-5 w-5 text-gray-400"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
     </svg>
   );
@@ -60,11 +64,14 @@ function CoinDetails() {
           <LoadingOverlay />
         </div>
       ) : (
-        <div className="min-h-screen bg-white dark:bg-inherit text-gray-900 dark:text-white" key={coinDetails.id}>
+        <div
+          className="min-h-screen bg-white text-gray-900 dark:bg-inherit dark:text-white"
+          key={coinDetails.id}
+        >
           <div className="container mx-auto py-8">
             <div
               onClick={() => navigation("/")}
-              className="mb-6 inline-flex cursor-pointer items-center text-blue-600 dark:text-[#00D7FE] transition-colors duration-200 hover:underline"
+              className="mb-6 inline-flex cursor-pointer items-center text-blue-600 transition-colors duration-200 hover:underline dark:text-[#00D7FE]"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to list
@@ -77,7 +84,7 @@ function CoinDetails() {
               className="flex flex-col items-start justify-between gap-8 lg:flex-row"
             >
               <div className="w-full flex-1">
-                <Card className="mb-8 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
+                <Card className="mb-8 border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
                   <CardHeader className="flex flex-row items-center gap-4">
                     <img
                       src={coinDetails.image.large}
@@ -136,27 +143,27 @@ function CoinDetails() {
                     </div>
                     <div className="mb-4 flex justify-center gap-4">
                       <button
-                        className={`px-4 py-2 rounded-lg ${
-                          activeChart === 'coin' 
-                            ? 'bg-blue-500 dark:bg-[#00D7FE] text-white dark:text-black' 
-                            : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white'
+                        className={`rounded-lg px-4 py-2 ${
+                          activeChart === "coin"
+                            ? "bg-blue-500 text-white dark:bg-[#00D7FE] dark:text-black"
+                            : "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
                         }`}
-                        onClick={() => setActiveChart('coin')}
+                        onClick={() => setActiveChart("coin")}
                       >
                         Price Chart
                       </button>
                       <button
-                        className={`px-4 py-2 rounded-lg ${
-                          activeChart === 'trading' 
-                            ? 'bg-blue-500 dark:bg-[#00D7FE] text-white dark:text-black' 
-                            : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white'
+                        className={`rounded-lg px-4 py-2 ${
+                          activeChart === "trading"
+                            ? "bg-blue-500 text-white dark:bg-[#00D7FE] dark:text-black"
+                            : "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
                         }`}
-                        onClick={() => setActiveChart('trading')}
+                        onClick={() => setActiveChart("trading")}
                       >
                         Trading View
                       </button>
                     </div>
-                    {activeChart === 'coin' ? (
+                    {activeChart === "coin" ? (
                       <CoinChart
                         coinId={coinDetails.id}
                         price_change_percentage_24h={
@@ -171,7 +178,7 @@ function CoinDetails() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-gray-200 dark:border-gray-700 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 shadow-lg">
+                <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg dark:border-gray-700 dark:from-gray-800 dark:to-gray-900">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
                       Price Converter
@@ -183,9 +190,9 @@ function CoinDetails() {
                         <label className="flex items-center gap-2 text-gray-400">
                           {fromCrypto ? (
                             <>
-                              <img 
-                                src={coinDetails.image.small} 
-                                alt={coinDetails.symbol} 
+                              <img
+                                src={coinDetails.image.small}
+                                alt={coinDetails.symbol}
                                 className="h-5 w-5"
                               />
                               {coinDetails.symbol.toUpperCase()}
@@ -201,7 +208,7 @@ function CoinDetails() {
                           type="number"
                           value={amount}
                           onChange={(e) => setAmount(e.target.value)}
-                          className="w-full rounded-xl bg-white/50 dark:bg-gray-700/50 p-4 text-2xl text-gray-900 dark:text-white transition-all focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-[#00D7FE]"
+                          className="w-full rounded-xl bg-white/50 p-4 text-2xl text-gray-900 transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700/50 dark:text-white dark:focus:bg-gray-700 dark:focus:ring-[#00D7FE]"
                           placeholder="0.00"
                         />
                       </div>
@@ -224,16 +231,16 @@ function CoinDetails() {
                             </>
                           ) : (
                             <>
-                              <img 
-                                src={coinDetails.image.small} 
-                                alt={coinDetails.symbol} 
+                              <img
+                                src={coinDetails.image.small}
+                                alt={coinDetails.symbol}
                                 className="h-5 w-5"
                               />
                               {coinDetails.symbol.toUpperCase()}
                             </>
                           )}
                         </label>
-                        <div className="w-full rounded-xl bg-white/50 dark:bg-gray-700/50 p-4">
+                        <div className="w-full rounded-xl bg-white/50 p-4 dark:bg-gray-700/50">
                           <div className="text-2xl font-medium text-gray-900 dark:text-white">
                             {calculateConversion(amount, fromCrypto)}
                           </div>
@@ -245,7 +252,7 @@ function CoinDetails() {
               </div>
 
               <div className="w-full lg:w-1/3">
-                <Card className="sticky top-4 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
+                <Card className="sticky top-4 border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
                       Market Stats
@@ -297,13 +304,17 @@ function CoinDetails() {
                         label="All Time Low"
                         value={`$${coinDetails.market_data.atl.usd.toLocaleString()}`}
                       />
-                      <div className="border-b border-gray-200 dark:border-gray-700 pb-2 flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Bullish Sentiment</span>
+                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">
+                          Bullish Sentiment
+                        </span>
                         <div className="flex items-center justify-end gap-2">
                           <div className="h-2 w-24 overflow-hidden rounded-full bg-gray-700">
-                            <div 
-                              className="h-full bg-green-500" 
-                              style={{ width: `${coinDetails.sentiment_votes_up_percentage}%` }}
+                            <div
+                              className="h-full bg-green-500"
+                              style={{
+                                width: `${coinDetails.sentiment_votes_up_percentage}%`,
+                              }}
                             />
                           </div>
                           <span className="font-medium text-green-500">
@@ -312,13 +323,17 @@ function CoinDetails() {
                         </div>
                       </div>
 
-                      <div className="border-b border-gray-200 dark:border-gray-700 pb-2 flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Bearish Sentiment</span>
+                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">
+                          Bearish Sentiment
+                        </span>
                         <div className="flex items-center justify-end gap-2">
                           <div className="h-2 w-24 overflow-hidden rounded-full bg-gray-700">
-                            <div 
-                              className="h-full bg-red-500" 
-                              style={{ width: `${coinDetails.sentiment_votes_down_percentage}%` }}
+                            <div
+                              className="h-full bg-red-500"
+                              style={{
+                                width: `${coinDetails.sentiment_votes_down_percentage}%`,
+                              }}
                             />
                           </div>
                           <span className="font-medium text-red-500">
@@ -351,7 +366,7 @@ function StatItem({ label, value }) {
 
 function MarketStatItem({ label, value }) {
   return (
-    <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
+    <div className="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
       <span className="text-gray-600 dark:text-gray-400">{label}</span>
       <span className="font-medium text-gray-900 dark:text-white">{value}</span>
     </div>

@@ -53,7 +53,7 @@ export async function getCoinChartData(id, days, currency) {
 // trending coin
 export async function getTrendingCoins() {
   try {
-    const response = await fetch(`${BASE_URL}/search/trending`);
+    const response = await fetch(`${BASE_URL}/search/trending`, options);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

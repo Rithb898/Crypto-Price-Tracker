@@ -9,6 +9,7 @@ import { ThemeProvider } from "./context/theme";
 import { useEffect, useState } from "react";
 import Footer from "./components/layout/Footer";
 import CryptoPage from "./pages/CryptoPage";
+import HomePage2 from "./pages/HomePage2";
 
 function App() {
   const [themeMode, setThemeMode] = useState("dark");
@@ -34,7 +35,8 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage2 />} />
             <Route path="/crypto" element={<CryptoPage />} />
             <Route path="/trending" element={<TrendingPage />} />
             <Route path="/favorites" element={<FavoritePage />} />
